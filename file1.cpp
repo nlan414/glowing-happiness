@@ -10,6 +10,7 @@ void applianceControlMenu();
 
 int main()
 {
+    // comment
     int terminator = 0;
     while (terminator != 6)
     {
