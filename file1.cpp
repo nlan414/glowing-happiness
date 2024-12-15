@@ -1,15 +1,31 @@
 #include <iostream>
-
+#include <string>
 using namespace std;
 
 int main()
 {
     string userName;
-    cout << "Welcome to Smart Home Automation System" << endl;
-    cout << "Please enter your name: ";
-    cin >> userName;
-    cout << "Hello " << userName << " enjoy your use of Smart Home Automation System" << endl;
     int userChoice;
+    cout << "Hello and Welcome to Smart Home Automation System" << endl;
+    cout << "Please the name of the user (First Name): ";
+    cin >> userName;
+    cout << "Hello " << userName << ", Enjoy your use of Smart Home Automation System" << endl;
+
+    // variable used for light control
+    int time;
+    // variable used for thermostat setting
+    int mode;
+    // variables used for energy usage calculator
+    int counter;
+    float energyUsage;
+    float totalUsage = 0;
+    // variables used for security system login
+    int correctPin = 12345;
+    int pin;
+    int i = 3;
+    // variable used for appliance control
+    char menuChoice;
+
     while (userChoice != 6)
     {
         cout << "--------------------------------------------------------" << endl
@@ -19,7 +35,7 @@ int main()
              << "1. Light Control" << endl
              << "2. Thermostat Settings" << endl
              << "3. Energy Usage Calculator" << endl
-             << "4. Security System Login" << endl
+             << "4. Security System Login" << endl // correct password is 12345
              << "5. Appliance Control" << endl
              << "6. Exit" << endl;
         cout << endl
@@ -29,7 +45,6 @@ int main()
         {
             cout << "--------------------------------------------------------" << endl
                  << "LIGHT CONTROL" << endl;
-            int time;
             cout << "Enter Current Hour in 24-hour format (0 - 23): ";
             cin >> time;
             cout << endl;
@@ -58,7 +73,6 @@ int main()
         }
         else if (userChoice == 2)
         {
-            int mode;
             cout << "--------------------------------------------------------" << endl
                  << "THERMOSTAT SETTING" << endl;
             cout << "Please Select Mode. Enter the numeric code for your choice." << endl
@@ -70,24 +84,23 @@ int main()
             cout << "Choice: ";
             cin >> mode;
             cout << endl;
-
             switch (mode)
             {
             case 1:
-                cout << "You set the mode to Cool" << endl;
-                cout << "Thermostat Status : COOL" << endl;
+                cout << "Cool mode on." << endl;
+                cout << "Thermostat Status: COOL" << endl;
                 break;
             case 2:
-                cout << "You set the mode to Heat" << endl;
-                cout << "Thermostat Status : HEAT" << endl;
+                cout << "Heat mode on" << endl;
+                cout << "Thermostat Status: HEAT" << endl;
                 break;
             case 3:
-                cout << "You set the mode to Fan" << endl;
-                cout << "Thermostat Status : FAN" << endl;
+                cout << "Fan mode on." << endl;
+                cout << "Thermostat Status: FAN" << endl;
                 break;
             case 4:
-                cout << "You set the mode to Off" << endl;
-                cout << "Thermostat Status : OFF" << endl;
+                cout << "Modes Diactivated." << endl;
+                cout << "Thermostat Status: OFF" << endl;
                 break;
             default:
                 cout << "Invalid Mode. Please try again" << endl;
@@ -96,9 +109,6 @@ int main()
         }
         else if (userChoice == 3)
         {
-            int counter;
-            float energyUsage; // we used float if ever user input a value that has decimal
-            float totalUsage = 0;
             cout << "--------------------------------------------------------" << endl
                  << "ENERGY USAGE CALCULATOR" << endl;
             cout << "Weekly Energy Consumptions in kilowatt-hour (kWh)." << endl
@@ -118,9 +128,6 @@ int main()
                  << "SECURITY SYSTEM LOGIN" << endl;
             cout << "Please enter the correct PIN. You only have 3 Attempts." << endl
                  << endl;
-            int correctPin = 12345;
-            int pin;
-            int i = 3;
             while (pin != correctPin && i > 0)
             {
                 cout << "Attempt Available: " << i << endl;
@@ -149,7 +156,6 @@ int main()
                  << "APPLIANCE CONTROL" << endl;
             cout << "Please select the letter of your choice. Press (X) to exit." << endl
                  << endl;
-            char menuChoice;
             do
             {
                 cout << "A. TV" << endl
